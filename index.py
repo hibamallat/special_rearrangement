@@ -1,26 +1,27 @@
 numbers_list = []
-even_num = []
-odd_num = []
+even_numbers = []
+odd_numbers = []
 
 def special_rearrangement(nums):
     for i in range (len(nums)):
         if nums[i] % 2 == 0:
-            even_num.append(nums[i])
+            even_numbers.append(nums[i])
         else:
-            odd_num.append(nums[i])
+            odd_numbers.append(nums[i])
 
-    rearrange_list = even_num + odd_num
-    return rearrange_list
+    ordered_list = even_numbers + odd_numbers
+    return ordered_list
 try:
     for i in range (8):
-        num = int(input("Please enter a number to include it in the list: "))
-        numbers_list.append(num)
-        if num == 0:
-            numbers_list.remove(num)
+        num_user = int(input("Please enter a number to add to the list (enter -1 to stop): "))
+        numbers_list.append(num_user)
+        if num_user == -1:
+            numbers_list.remove(num_user)
             break
 
-    print("Numbers list:", numbers_list)
+    print("List of added numbers:", numbers_list)
 
-    print("Rearrange list:", special_rearrangement(numbers_list))
+    print("Arranged list (Even first, then Odd):", special_rearrangement(numbers_list))
+
 except ValueError:
-    print("INVALID: Enter a number")
+    print("INVALID: Enter a valid number")
